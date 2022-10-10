@@ -1,0 +1,62 @@
+#######################################################################################################
+CREATING EKS CLUSTER WITH 3 WORKER NODES AND DEPLOYING IMAGE IN THE WORKER NODE USING NODESELECTOR ON AWS
+########################################################################################################
+
+# 3 WAYS OF CREATING EKS CLUSTER
+
+# 1 WAY: a) AWS Management Console
+
+          - create AWS account with Admin Privileges
+		  - AWS Cli Access to use Kubectl utility
+		  - Instance (To manage cluster by using Kubectl)
+		  - create a VPC
+		  - create an IAM role with Security Group (or in other words: create AWS user with list of permissions)
+		  
+       b) Create cluster on control plane
+	   
+	      - choose basic information like cluster name and k8s version
+          - choose region and VPC for your cluster
+          - set security
+		  - Install& Setup IAM Authenticator and kubectl Utility
+		  
+	   c) Create worker nodes and Connect to Cluster (The Worker Nodes are some EC2 instances with CPU and storage resources.)
+	     
+		  - Create IAM Roler EKS Worker Nodes
+		  - Create as a Node Group (WOrker nodes)
+          - Choose cluster it will attach to
+          - Define Security Group, select instance type etc.
+	   	  
+        With NodeGroup you have autoscaling, which means based on your needs depending on how much load the cluster has new Worker Nodes will automatically added or removed in the cluster.
+
+        - For that you need to define max and minimum number of Nodes.
+
+        --------  Complex, but powerful and popular -------- 
+		
+        You're right, that's a lot of effort for just creating a simple Kubernetes cluster. Compared to other managed Kubernetes services, like DigitalOcean or Linode it's more complex.
+
+        So, how to do it, when you just want to create a cluster and start deploying your containers inside as fast as possible. 
+
+        Instead of doing all those steps manually, there is a faster and more efficient way.
+ 
+# 2 WAY: a) Use eksctl to Create Cluster
+
+        eksctl is a simple CLI tool for creating clusters on EKS. With just one command you create a cluster in minutes.
+
+PREREQUISITES:    
+
+        - AWS CLI Access with Admin Privileges.
+		- One instance (AWS Cli must have installed)
+		- SSH Key (Optional To allow remote ssh to worker nodes)
+		
+STEPS iNVOLVED:
+
+		- Install Eksctl and Kubectl utility
+		- Create Eks Cluster using Eksctl utility
+		- Deploying Demo Application
+		
+# 3 WAY: a) Iac (Terraform, ansible)
+
+
+
+	
+ 
